@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.user %}
+        <i>Vous etes connectés en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">se déconnecter</a> </i>
+    {% else %}
+        <a href="{{ path('app_login') }}">Se connecter</a>
+        <a href="{{ path('app_register') }}">S'inscrire</a>
+    {% endif %}
+    <h1>Liste des utilisateurs</h1>
+    {% for user in users %}
+        <a href="{{ path('app_user_show', {id : user.id}) }}">{{ user.username }}</a><br>
+    {% endfor %}
+{% endblock %}
