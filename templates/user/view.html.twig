@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Profil de l'utilisateur {{ user.id }}</h1>
+    {% if app.user and app.user.id== user.id %}
+        <h2>Pseudo : {{ user.username }}</h2>
+        <h2>Nom : {{ user.lastname }}</h2>
+        <h2>Prénom : {{ user.firstname }}</h2>
+        <h2>Age : {{ user.age }}</h2>
+    {% else %}
+        <h1>Vous n'avez pas accès à ces informations</h1>
+    {% endif %}
+{% endblock %}
